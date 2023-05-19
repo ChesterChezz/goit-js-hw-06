@@ -14,17 +14,9 @@ const images = [
 ];
 
 const ul = document.querySelector(".gallery");
-const fragment = document.createDocumentFragment();
 ul.classList.add("images-list");
-
+let html = "";
 images.forEach((image) => {
-  const li = document.createElement("li");
-  const img = document.createElement("img");
-  img.src = image.url;
-  img.alt = image.alt;
-
-  li.appendChild(img);
-  fragment.appendChild(li);
+  html += `<li><img src="${image.url}" alt="${image.alt}" /></li>`;
 });
-
-ul.appendChild(fragment);
+ul.insertAdjacentHTML("afterbegin", html);
